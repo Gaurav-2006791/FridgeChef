@@ -1,0 +1,21 @@
+# Python and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Environment files
+backend/.env
+
+# Editor settings
+.vscode/
+.idea/
+
+# Docker cache and temporary files
+.docker/
+*.log
+*.tmp
+*.swp

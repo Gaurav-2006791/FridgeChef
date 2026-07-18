@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fridge Chef | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="dashboard.html"><i class="bi bi-basket2-fill me-2"></i>Fridge Chef</a>
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <span class="text-muted me-2">Signed in as <strong id="userName">Chef</strong></span>
+          <a href="/logout" class="btn btn-outline-success">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+      <div class="alert alert-success d-flex align-items-center justify-content-between" role="status">
+        <div>
+          <strong>Welcome back!</strong>
+          <div class="small text-muted">Your personalized kitchen workspace is ready.</div>
+        </div>
+        <span class="badge rounded-pill bg-success-subtle text-success-emphasis">Logged in</span>
+      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-4">
+          <div class="glass-card p-4">
+            <h3 class="fw-bold">Your Kitchen Profile</h3>
+            <p class="text-muted">Manage your recipes and keep your fridge plans organized.</p>
+            <div class="d-flex align-items-center gap-3 mt-3">
+              <div class="avatar">FC</div>
+              <div>
+                <h5 class="mb-0" id="profileName">Chef</h5>
+                <p class="text-muted mb-0" id="profileEmail">chef@fridgechef.app</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="glass-card p-4">
+            <h2 class="fw-bold mb-3">AI Recipe Generator</h2>
+            <p class="text-muted">Create meals from what is already in your kitchen.</p>
+            <form id="recipeForm" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="ingredients" class="form-label">Ingredients</label>
+                <textarea class="form-control" id="ingredients" rows="4" placeholder="e.g. chicken, tomatoes, garlic, spinach" required></textarea>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="cuisine" class="form-label">Cuisine</label>
+                  <select class="form-select" id="cuisine">
+                    <option>Any</option>
+                    <option>Italian</option>
+                    <option>Indian</option>
+                    <option>Mexican</option>
+                    <option>Asian</option>
+                    <option>American</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="mealType" class="form-label">Meal Type</label>
+                  <select class="form-select" id="mealType">
+                    <option>Dinner</option>
+                    <option>Breakfast</option>
+                    <option>Lunch</option>
+                    <option>Snack</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="diet" class="form-label">Diet</label>
+                  <select class="form-select" id="diet">
+                    <option>None</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>High-Protein</option>
+                    <option>Gluten-Free</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="cookingTime" class="form-label">Cooking Time</label>
+                  <input type="number" class="form-control" id="cookingTime" min="10" max="90" value="30" />
+                </div>
+                <div class="col-md-6">
+                  <label for="spiceLevel" class="form-label">Spice Level</label>
+                  <select class="form-select" id="spiceLevel">
+                    <option>Mild</option>
+                    <option>Medium</option>
+                    <option>Hot</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="servings" class="form-label">Servings</label>
+                  <input type="number" class="form-control" id="servings" min="1" max="8" value="2" />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg w-100 mt-4" id="submitBtn"><i class="bi bi-stars me-2"></i>Generate Recipe</button>
+            </form>
+            <div id="loading" class="mt-3 d-none text-center">
+              <div class="spinner-border text-success" role="status"></div>
+              <p class="mt-2 text-muted">Cooking up something delicious...</p>
+            </div>
+            <div id="results" class="recipe-card p-4 mt-4"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
